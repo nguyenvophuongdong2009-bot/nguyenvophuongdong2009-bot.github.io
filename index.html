@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YOLOv8, YOLO11, YOLOv12: Hướng dẫn cài pip và code chạy ngay</title>
+<meta name="description" content="Giới thiệu YOLOv8, YOLO11, YOLOv12, lệnh pip cài đặt ultralytics và code Python mẫu (ảnh, webcam, video, train) sao chép là chạy ngay.">
+<meta name="keywords" content="YOLO, YOLOv8, YOLO11, YOLOv12, ultralytics, pip install ultralytics, nhận diện đối tượng, object detection, code YOLO Python">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nguyenvophuongdong2009-bot.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="YOLOv8, YOLO11, YOLOv12: cài pip và code chạy ngay">
+<meta property="og:description" content="Giới thiệu ngắn gọn, lệnh pip chuẩn và code mẫu cho YOLOv8, YOLO11, YOLOv12.">
+<meta property="og:url" content="https://nguyenvophuongdong2009-bot.github.io/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"YOLO v8 v11 v12","url":"https://nguyenvophuongdong2009-bot.github.io/","inLanguage":"vi","description":"Hướng dẫn cài đặt và code mẫu cho YOLOv8, YOLO11, YOLOv12."}</script>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#14182b;--mu:#5b6280;--bd:#e1e4f0;--ac:#4f46e5;--ac2:#06b6d4;--code:#0f1226;--codetx:#e6e9ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0f1e;--card:#161a30;--tx:#eceefb;--mu:#9aa1c4;--bd:#272c4a;--ac:#818cf8;--ac2:#22d3ee;--code:#080a16}}
+:root[data-theme="dark"]{--bg:#0d0f1e;--card:#161a30;--tx:#eceefb;--mu:#9aa1c4;--bd:#272c4a;--ac:#818cf8;--ac2:#22d3ee;--code:#080a16}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+header{text-align:center;padding:40px 16px 20px}
+h1{font-size:clamp(2rem,6vw,3.2rem);margin:0;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{color:var(--mu);max-width:640px;margin:10px auto 0}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px 16px}
+.main-tab,.vtab{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:10px 18px;border-radius:999px;font-size:1rem;cursor:pointer;font-weight:600}
+.main-tab.on,.vtab.on{background:linear-gradient(90deg,var(--ac),var(--ac2));color:#fff;border-color:transparent}
+main{max-width:920px;margin:0 auto;padding:8px 16px 48px}
+section{display:none}section.on{display:block}
+h2{margin:8px 0 14px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px}
+.card h3{margin:0 0 4px;color:var(--ac)}
+.tag{font-size:.8rem;color:var(--mu);margin-bottom:8px}
+.card ul{padding-left:18px;margin:8px 0 0}
+.card li{margin:4px 0}
+.note{background:var(--card);border:1px dashed var(--ac);border-radius:12px;padding:12px 16px;margin-top:16px;color:var(--mu);font-size:.95rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.block{margin-bottom:16px}
+.block h4{margin:0 0 6px}
+.codebox{position:relative;background:var(--code);border-radius:12px;overflow:hidden}
+.codebox pre{margin:0;padding:16px;padding-top:44px;overflow-x:auto;color:var(--codetx);font:.88rem/1.55 ui-monospace,Menlo,Consolas,monospace}
+.copy{position:absolute;top:8px;right:8px;background:#ffffff22;color:#fff;border:0;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:.85rem}
+.copy:hover{background:#ffffff44}
+.lang{position:absolute;top:12px;left:16px;font-size:.75rem;color:#8c93c0}
+footer{text-align:center;color:var(--mu);padding:20px;font-size:.85rem}
+</style>
+</head>
+<body>
+<header>
+<h1>YOLO v8 · v11 · v12</h1>
+<p>Phát hiện đối tượng thời gian thực – giới thiệu nhanh, lệnh cài đặt và code chạy ngay.</p>
+</header>
+<nav>
+<button class="main-tab on" data-s="s1">1. Giới thiệu</button>
+<button class="main-tab" data-s="s2">2. Cài đặt pip</button>
+<button class="main-tab" data-s="s3">3. Code mẫu</button>
+</nav>
+<main>
+
+<section id="s1" class="on">
+<h2>YOLO là gì?</h2>
+<p><b>YOLO (You Only Look Once)</b> là họ mô hình AI nhận diện đối tượng chỉ với một lần quét ảnh, nên cực nhanh, phù hợp camera, video, robot, giám sát giao thông… Ba phiên bản phổ biến hiện nay:</p>
+<div class="grid">
+<div class="card"><h3>YOLOv8</h3><div class="tag">Ultralytics · 01/2023</div>
+<ul><li>Anchor-free, decoupled head</li><li>Ổn định, tài liệu và cộng đồng rất lớn</li><li>Hỗ trợ detect, segment, classify, pose, OBB</li></ul></div>
+<div class="card"><h3>YOLO11</h3><div class="tag">Ultralytics · 09/2024</div>
+<ul><li>Khối C3k2 và C2PSA mới</li><li>Ít tham số hơn v8, độ chính xác cao hơn</li><li>Cân bằng tốt tốc độ và độ chính xác</li></ul></div>
+<div class="card"><h3>YOLOv12</h3><div class="tag">Cộng đồng · 02/2025</div>
+<ul><li>Kiến trúc dựa trên attention (Area Attention, R-ELAN)</li><li>mAP cao nhất trong ba bản</li><li>Tốn bộ nhớ khi train, chậm hơn trên CPU</li></ul></div>
+</div>
+<div class="note"><b>Nên chọn:</b> cần ổn định → v8 · cần cân bằng, khuyên dùng → YOLO11 · cần độ chính xác cao nhất và có GPU → YOLOv12.</div>
+</section>
+
+<section id="s2">
+<h2>Cài đặt bằng pip</h2>
+<div class="tabs" data-for="s2"></div>
+<div id="s2c"></div>
+</section>
+
+<section id="s3">
+<h2>Code chạy ngay</h2>
+<div class="tabs" data-for="s3"></div>
+<div id="s3c"></div>
+</section>
+
+</main>
+<footer>Sao chép code, dán vào file <code>.py</code> rồi chạy: <code>python ten_file.py</code></footer>
+
+<script>
+var V=[
+ {id:"v8",name:"YOLOv8",w:"yolov8n.pt",pip:"pip install -U ultralytics",extra:""},
+ {id:"v11",name:"YOLO11",w:"yolo11n.pt",pip:"pip install -U ultralytics",extra:""},
+ {id:"v12",name:"YOLOv12",w:"yolo12n.pt",pip:'pip install -U "ultralytics>=8.3.78"',extra:"YOLOv12 cần Ultralytics từ bản 8.3.78 trở lên, nên luôn dùng -U để cập nhật."}
+];
+var cur="v8";
+
+function installBlocks(v){
+ return [
+  ["Bước 1 – Tạo môi trường ảo (khuyên dùng)","bash",
+"python -m venv yolo_env\n# Windows:\nyolo_env\\Scripts\\activate\n# Linux / macOS:\n# source yolo_env/bin/activate"],
+  ["Bước 2 – Cài "+v.name,"bash",v.pip+"\npip install opencv-python"],
+  ["Bước 3 – Kiểm tra cài đặt","bash",
+'python -c "import ultralytics; ultralytics.checks()"'],
+  ["Chạy nhanh bằng dòng lệnh (CLI)","bash",
+"yolo predict model="+v.w+" source=\"https://ultralytics.com/images/bus.jpg\" save=True"]
+ ];
+}
+
+function codeBlocks(v){
+ var m=v.w;
+ return [
+  ["1. Nhận diện ảnh","python",
+'from ultralytics import YOLO\n\nmodel = YOLO("'+m+'")  # tự tải weights ở lần chạy đầu\nresults = model.predict("https://ultralytics.com/images/bus.jpg", conf=0.25, save=True)\n\nfor r in results:\n    for box in r.boxes:\n        name = model.names[int(box.cls)]\n        print(name, round(float(box.conf), 2), box.xyxy[0].tolist())\n\nprint("Ảnh kết quả lưu trong thư mục runs/detect/")'],
+  ["2. Nhận diện webcam (bấm Q để thoát)","python",
+'import cv2\nfrom ultralytics import YOLO\n\nmodel = YOLO("'+m+'")\ncap = cv2.VideoCapture(0)\n\nwhile cap.isOpened():\n    ok, frame = cap.read()\n    if not ok:\n        break\n    annotated = model(frame, verbose=False)[0].plot()\n    cv2.imshow("'+v.name+'", annotated)\n    if cv2.waitKey(1) & 0xFF == ord("q"):\n        break\n\ncap.release()\ncv2.destroyAllWindows()'],
+  ["3. Nhận diện video","python",
+'from ultralytics import YOLO\n\nmodel = YOLO("'+m+'")\nmodel.predict("video.mp4", save=True, conf=0.25)  # đổi video.mp4 thành file của bạn'],
+  ["4. Train dữ liệu riêng","python",
+'from ultralytics import YOLO\n\nif __name__ == "__main__":  # bắt buộc trên Windows\n    model = YOLO("'+m+'")\n    model.train(\n        data="coco8.yaml",  # đổi thành data.yaml của bạn\n        epochs=50,\n        imgsz=640,\n        batch=16,\n    )\n    model.val()'],
+  ["5. Xuất model (ONNX)","python",
+'from ultralytics import YOLO\n\nmodel = YOLO("'+m+'")\nmodel.export(format="onnx")'] 
+ ];
+}
+
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+
+function render(){
+ document.querySelectorAll(".tabs").forEach(function(t){
+  t.innerHTML="";
+  V.forEach(function(v){
+   var b=document.createElement("button");
+   b.className="vtab"+(v.id===cur?" on":"");
+   b.textContent=v.name;
+   b.onclick=function(){cur=v.id;render()};
+   t.appendChild(b);
+  });
+ });
+ var v=V.filter(function(x){return x.id===cur})[0];
+ fill("s2c",installBlocks(v),v.extra);
+ fill("s3c",codeBlocks(v),"");
+}
+
+function fill(id,blocks,note){
+ var h="";
+ blocks.forEach(function(b){
+  h+='<div class="block"><h4>'+b[0]+'</h4><div class="codebox"><span class="lang">'+b[1]+'</span><button class="copy">Sao chép</button><pre><code>'+esc(b[2])+'</code></pre></div></div>';
+ });
+ if(note)h+='<div class="note">'+note+'</div>';
+ var el=document.getElementById(id);
+ el.innerHTML=h;
+ el.querySelectorAll(".copy").forEach(function(btn){
+  btn.onclick=function(){
+   var txt=btn.parentNode.querySelector("code").textContent;
+   var done=function(){btn.textContent="Đã chép ✓";setTimeout(function(){btn.textContent="Sao chép"},1500)};
+   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){fallback(txt);done()})}
+   else{fallback(txt);done()}
+  };
+ });
+}
+
+function fallback(t){
+ var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();
+ try{document.execCommand("copy")}catch(e){}
+ document.body.removeChild(a);
+}
+
+document.querySelectorAll(".main-tab").forEach(function(b){
+ b.onclick=function(){
+  document.querySelectorAll(".main-tab").forEach(function(x){x.classList.remove("on")});
+  document.querySelectorAll("section").forEach(function(x){x.classList.remove("on")});
+  b.classList.add("on");
+  document.getElementById(b.dataset.s).classList.add("on");
+ };
+});
+render();
+</script>
+</body>
+</html>
