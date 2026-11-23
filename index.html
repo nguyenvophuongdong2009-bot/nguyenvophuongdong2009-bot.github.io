@@ -24,9 +24,10 @@ main{max-width:960px;margin:0 auto;padding:0 16px 60px}
 section{display:none}
 section.on{display:block}
 h2{font-size:1.6rem;margin:0 0 16px}
+h3{font-size:1.25rem;margin:32px 0 14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:20px 0}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,.04)}
-.card h3{margin:0 0 6px;color:var(--ac)}
+.card h3{margin:0 0 6px;color:var(--ac);font-size:1.15rem}
 .tag{font-size:.85rem;color:var(--mu);margin-bottom:12px}
 .card ul{margin:0;padding-left:18px}
 .card li{margin:4px 0}
@@ -39,6 +40,10 @@ h2{font-size:1.6rem;margin:0 0 16px}
 .codebox .copy{position:absolute;top:8px;right:12px;background:rgba(255,255,255,.12);border:none;color:#fff;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:.8rem}
 pre{margin:28px 0 0;white-space:pre-wrap;word-break:break-word}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:.95rem}
+th,td{padding:11px 14px;text-align:left}
+thead tr{background:linear-gradient(90deg,var(--ac),var(--ac2));color:#fff}
+tbody tr{border-bottom:1px solid var(--bd)}
 </style>
 </head>
 <body>
@@ -56,39 +61,66 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
 <main>
 
-<!-- 1. YOLO -->
+<!-- ===== 1. YOLO ===== -->
 <section id="s1" class="on">
   <h2>YOLO là gì?</h2>
   <p><b>YOLO (You Only Look Once)</b> là họ mô hình AI nhận diện đối tượng chỉ với một lần quét ảnh, nên cực nhanh, phù hợp camera, video, robot, giám sát giao thông… Ba phiên bản phổ biến hiện nay:</p>
   <div class="grid">
-    <div class="card"><h3>YOLOv8</h3><div class="tag">Ultralytics · 01/2023</div>
-      <ul><li>Anchor-free, decoupled head</li><li>Ổn định, tài liệu và cộng đồng rất lớn</li><li>Hỗ trợ detect, segment, classify, pose, OBB</li></ul></div>
-    <div class="card"><h3>YOLO11</h3><div class="tag">Ultralytics · 09/2024</div>
-      <ul><li>Khối C3k2 và C2PSA mới</li><li>Ít tham số hơn v8, độ chính xác cao hơn</li><li>Cân bằng tốt tốc độ và độ chính xác</li></ul></div>
-    <div class="card"><h3>YOLOv12</h3><div class="tag">Cộng đồng · 02/2025</div>
-      <ul><li>Kiến trúc dựa trên attention (Area Attention, R-ELAN)</li><li>mAP cao nhất trong ba bản</li><li>Tốn bộ nhớ khi train, chậm hơn trên CPU</li></ul></div>
+    <div class="card">
+      <h3>YOLOv8</h3>
+      <div class="tag">Ultralytics · 01/2023</div>
+      <ul>
+        <li>Anchor-free, decoupled head</li>
+        <li>Ổn định, tài liệu và cộng đồng rất lớn</li>
+        <li>Hỗ trợ detect, segment, classify, pose, OBB</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>YOLO11</h3>
+      <div class="tag">Ultralytics · 09/2024</div>
+      <ul>
+        <li>Khối C3k2 và C2PSA mới</li>
+        <li>Ít tham số hơn v8, độ chính xác cao hơn</li>
+        <li>Cân bằng tốt tốc độ và độ chính xác</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>YOLOv12</h3>
+      <div class="tag">Cộng đồng · 02/2025</div>
+      <ul>
+        <li>Kiến trúc dựa trên attention (Area Attention, R-ELAN)</li>
+        <li>mAP cao nhất trong ba bản</li>
+        <li>Tốn bộ nhớ khi train, chậm hơn trên CPU</li>
+      </ul>
+    </div>
   </div>
   <div class="note"><b>Nên chọn:</b> cần ổn định → v8 · cần cân bằng, khuyên dùng → YOLO11 · cần độ chính xác cao nhất và có GPU → YOLOv12.</div>
 </section>
 
-<!-- 2. Cài đặt -->
+<!-- ===== 2. Cài đặt ===== -->
 <section id="s2">
   <h2>Cài đặt bằng pip</h2>
   <div class="tabs" data-for="s2"></div>
   <div id="s2c"></div>
 </section>
 
-<!-- 3. Code -->
+<!-- ===== 3. Code ===== -->
 <section id="s3">
   <h2>Code chạy ngay</h2>
   <div class="tabs" data-for="s3"></div>
   <div id="s3c"></div>
 </section>
 
-<!-- 4. PLC Siemens -->
+<!-- ===== 4. PLC Siemens ===== -->
 <section id="s4">
-  <h2>Siemens PLC – Các dòng phổ biến</h2>
-  <p style="color:var(--mu);margin-bottom:24px">Từ logic module nhỏ đến controller cao cấp. Ảnh sản phẩm chính thức từ Siemens.</p>
+  <h2>Siemens PLC – Giới thiệu & Chức năng</h2>
+
+  <div class="note" style="margin-bottom:28px">
+    <b>PLC là gì?</b><br>
+    PLC (Programmable Logic Controller) là bộ điều khiển logic khả trình, dùng để tự động hóa máy móc và dây chuyền sản xuất. 
+    Nó nhận tín hiệu từ cảm biến (input), xử lý theo chương trình, rồi điều khiển các thiết bị đầu ra như motor, van, đèn… 
+    Siemens là hãng PLC phổ biến nhất tại Việt Nam với các dòng từ nhỏ đến lớn.
+  </div>
 
   <div class="grid">
 
@@ -98,37 +130,39 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <h3>LOGO!</h3>
       <div class="tag">Logic module · Nhỏ nhất</div>
       <ul>
-        <li>LOGO! 8 & LOGO! 9</li>
-        <li>Có / không màn hình màu</li>
-        <li>Ethernet + Web server sẵn</li>
-        <li>Phù hợp máy nhỏ, building, HVAC</li>
-        <li>Lập trình Soft Comfort rất dễ</li>
+        <li><b>Chức năng chính:</b> Thay thế rơ-le, timer, counter trong tủ điện nhỏ</li>
+        <li>Có sẵn màn hình + nút bấm (hoặc không màn hình)</li>
+        <li>Ethernet, Web server, MQTT (LOGO! 8.4 / 9)</li>
+        <li>Lập trình bằng Soft Comfort (kéo thả rất dễ)</li>
+        <li>Ứng dụng: máy bơm, HVAC, cửa tự động, máy nhỏ</li>
       </ul>
     </div>
 
     <!-- S7-200 -->
     <div class="card">
-      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:feaa95f1-babd-48fc-9adf-3808b1ab9a37/quality:high/width:600/siemens-controller-s7-1200-visual.jpg" alt="SIMATIC S7-200 (tham chiếu)">
+      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:feaa95f1-babd-48fc-9adf-3808b1ab9a37/quality:high/width:600/siemens-controller-s7-1200-visual.jpg" alt="SIMATIC S7-200">
       <h3>S7-200</h3>
       <div class="tag">Compact · Đã ngừng sản xuất</div>
       <ul>
-        <li>CPU 221 / 222 / 224 / 226</li>
-        <li>Rất phổ biến trước 2010</li>
-        <li>Đã được thay thế bởi S7-1200</li>
-        <li>Vẫn còn nhiều hệ thống đang chạy</li>
+        <li><b>Chức năng chính:</b> Điều khiển máy móc nhỏ, giá rẻ</li>
+        <li>CPU 221 → 226, I/O tích hợp sẵn</li>
+        <li>Lập trình bằng Step 7 Micro/WIN</li>
+        <li>Đã được thay thế hoàn toàn bởi S7-1200</li>
+        <li>Vẫn còn nhiều nhà máy đang sử dụng</li>
       </ul>
     </div>
 
     <!-- S7-300 -->
     <div class="card">
-      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:0004103b-998a-4fef-9e90-b818a948be2b/quality:high/width:600/siemens-controller-s7-1500-visual.jpg" alt="SIMATIC S7-300 (tham chiếu)">
+      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:0004103b-998a-4fef-9e90-b818a948be2b/quality:high/width:600/siemens-controller-s7-1500-visual.jpg" alt="SIMATIC S7-300">
       <h3>S7-300</h3>
       <div class="tag">Modular · Trung bình</div>
       <ul>
-        <li>CPU 312 → 319</li>
-        <li>Rất phổ biến tại Việt Nam</li>
-        <li>Đang dần thay bằng S7-1500</li>
-        <li>Nhiều module I/O & communication</li>
+        <li><b>Chức năng chính:</b> Điều khiển dây chuyền vừa và lớn</li>
+        <li>CPU 312 → 319, mở rộng module rất linh hoạt</li>
+        <li>Hỗ trợ Profibus, Profinet, AS-i…</li>
+        <li>Lập trình bằng Step 7 (Classic) hoặc TIA Portal</li>
+        <li>Đang dần được thay thế bởi S7-1500</li>
       </ul>
     </div>
 
@@ -138,10 +172,11 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <h3>S7-400</h3>
       <div class="tag">High-end · Cũ</div>
       <ul>
-        <li>CPU 412 / 414 / 416 / 417</li>
-        <li>Hệ thống lớn, redundancy</li>
-        <li>Đang được thay bằng S7-1500</li>
-        <li>Hiệu năng cao, nhiều slot</li>
+        <li><b>Chức năng chính:</b> Hệ thống lớn, yêu cầu độ tin cậy cao</li>
+        <li>Hỗ trợ redundancy (dự phòng nóng)</li>
+        <li>Xử lý nhanh, nhiều slot module</li>
+        <li>Thường dùng trong nhà máy lớn, điện lực, dầu khí</li>
+        <li>Đang được thay thế bởi S7-1500</li>
       </ul>
     </div>
 
@@ -151,11 +186,11 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <h3>S7-1200 / S7-1200 G2</h3>
       <div class="tag">Compact · Phổ biến nhất hiện nay</div>
       <ul>
-        <li>CPU 1211C → 1217C</li>
-        <li><b>G2 (Generation 2)</b>: motion + safety mạnh hơn</li>
-        <li>Ethernet / Profinet sẵn</li>
-        <li>Lập trình TIA Portal</li>
-        <li>Máy móc vừa & nhỏ</li>
+        <li><b>Chức năng chính:</b> Điều khiển máy móc vừa & nhỏ, standalone</li>
+        <li>CPU 1211C → 1217C (G2 mạnh hơn về motion & safety)</li>
+        <li>Ethernet / Profinet tích hợp, Web server</li>
+        <li>Hỗ trợ Motion Control, PID, High-speed counter</li>
+        <li>Lập trình bằng TIA Portal (hiện đại, dễ dùng)</li>
       </ul>
     </div>
 
@@ -165,18 +200,78 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <h3>S7-1500</h3>
       <div class="tag">Advanced / High-end</div>
       <ul>
-        <li>CPU 1511 → 1518 (kể cả Fail-safe)</li>
-        <li>Hiệu năng rất cao, chu kỳ ngắn</li>
-        <li>Safety + Motion + Redundancy</li>
-        <li>Display tích hợp trên CPU</li>
-        <li>Dòng cao cấp nhất hiện tại</li>
+        <li><b>Chức năng chính:</b> Điều khiển hệ thống phức tạp, tốc độ cao</li>
+        <li>CPU 1511 → 1518 (có bản Fail-safe & Technology)</li>
+        <li>Motion Control mạnh, Safety tích hợp, Redundancy</li>
+        <li>Display trên CPU, chẩn đoán rất tốt</li>
+        <li>Lập trình TIA Portal – dòng cao cấp nhất hiện tại</li>
       </ul>
     </div>
 
   </div>
 
-  <div class="note">
-    Ảnh sản phẩm lấy từ nguồn Siemens chính thức. Để có ảnh độ phân giải cao nhất và đúng bản quyền, nên tải thêm từ <a href="https://www.automation.siemens.com/bilddb/" target="_blank" style="color:var(--ac)">Siemens Industry Image Database</a>.
+  <!-- Bảng so sánh -->
+  <h3>So sánh S7-1200 và S7-1500</h3>
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Tiêu chí</th>
+          <th>S7-1200 / G2</th>
+          <th>S7-1500</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Phân khúc</b></td>
+          <td>Compact (nhỏ – vừa)</td>
+          <td>Advanced (trung – cao cấp)</td>
+        </tr>
+        <tr>
+          <td><b>Ứng dụng</b></td>
+          <td>Máy standalone, máy vừa nhỏ</td>
+          <td>Dây chuyền lớn, hệ thống phức tạp</td>
+        </tr>
+        <tr>
+          <td><b>Hiệu năng</b></td>
+          <td>Trung bình → khá (G2 tốt hơn)</td>
+          <td>Rất cao, chu kỳ ngắn</td>
+        </tr>
+        <tr>
+          <td><b>Motion Control</b></td>
+          <td>Cơ bản → khá</td>
+          <td>Mạnh, nhiều trục phức tạp</td>
+        </tr>
+        <tr>
+          <td><b>Safety</b></td>
+          <td>Có (G2 linh hoạt hơn)</td>
+          <td>Rất mạnh, nhiều lựa chọn F-CPU</td>
+        </tr>
+        <tr>
+          <td><b>Redundancy</b></td>
+          <td>Không</td>
+          <td>Có (dự phòng nóng)</td>
+        </tr>
+        <tr>
+          <td><b>Màn hình trên CPU</b></td>
+          <td>Không</td>
+          <td>Có</td>
+        </tr>
+        <tr>
+          <td><b>Giá thành</b></td>
+          <td>Thấp hơn</td>
+          <td>Cao hơn đáng kể</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note" style="margin-top:28px">
+    <b>Tóm tắt nhanh nên chọn dòng nào:</b><br>
+    • Máy nhỏ, đơn giản → <b>LOGO!</b><br>
+    • Máy vừa, phổ thông, chi phí hợp lý → <b>S7-1200 / G2</b><br>
+    • Dây chuyền lớn, phức tạp, yêu cầu cao → <b>S7-1500</b><br>
+    • Hệ thống cũ đang chạy → S7-300 / S7-400 vẫn còn dùng nhiều.
   </div>
 </section>
 
@@ -200,7 +295,7 @@ function installBlocks(v){return[
 ]}
 function codeBlocks(v){return[
   ["1. Nhận diện ảnh","python",
-'from ultralytics import YOLO\\n\\nmodel = YOLO("'+v.m+'")  # tự tải weights ở lần chạy đầu\\nresults = model.predict("https://ultralytics.com/images/bus.jpg", conf=0.25, save=True)\\n\\nfor r in results:\\n    for box in r.boxes:\\n        name = model.names[int(box.cls)]\\n        print(name, float(box.conf))'],
+'from ultralytics import YOLO\\n\\nmodel = YOLO("'+v.m+'")\\nresults = model.predict("https://ultralytics.com/images/bus.jpg", conf=0.25, save=True)\\n\\nfor r in results:\\n    for box in r.boxes:\\n        name = model.names[int(box.cls)]\\n        print(name, float(box.conf))'],
   ["2. Webcam thời gian thực","python",
 'from ultralytics import YOLO\\nimport cv2\\n\\nmodel = YOLO("'+v.m+'")\\ncap = cv2.VideoCapture(0)\\n\\nwhile True:\\n    ok, frame = cap.read()\\n    if not ok: break\\n    annotated = model(frame, verbose=False)[0].plot()\\n    cv2.imshow("'+v.name+'", annotated)\\n    if cv2.waitKey(1) & 0xFF == ord("q"): break\\n\\ncap.release()\\ncv2.destroyAllWindows()'],
   ["3. Nhận diện video","python",
