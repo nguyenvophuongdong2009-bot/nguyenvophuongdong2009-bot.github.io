@@ -31,7 +31,7 @@ h2{font-size:1.6rem;margin:0 0 16px}
 .card ul{margin:0;padding-left:18px}
 .card li{margin:4px 0}
 .note{background:var(--card);border:1px dashed var(--bd);border-radius:12px;padding:14px 18px;margin-top:20px;color:var(--mu)}
-.plc-img{width:100%;height:160px;object-fit:contain;background:#f1f5f9;border-radius:12px;margin-bottom:14px;display:block}
+.plc-img{width:100%;height:180px;object-fit:contain;background:#f1f5f9;border-radius:12px;margin-bottom:14px;display:block}
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .block{margin-bottom:22px}
 .codebox{position:relative;background:var(--code);color:var(--codetx);border-radius:12px;padding:16px;overflow-x:auto}
@@ -56,7 +56,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
 <main>
 
-<!-- ===== 1. YOLO ===== -->
+<!-- 1. YOLO -->
 <section id="s1" class="on">
   <h2>YOLO là gì?</h2>
   <p><b>YOLO (You Only Look Once)</b> là họ mô hình AI nhận diện đối tượng chỉ với một lần quét ảnh, nên cực nhanh, phù hợp camera, video, robot, giám sát giao thông… Ba phiên bản phổ biến hiện nay:</p>
@@ -71,31 +71,30 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   <div class="note"><b>Nên chọn:</b> cần ổn định → v8 · cần cân bằng, khuyên dùng → YOLO11 · cần độ chính xác cao nhất và có GPU → YOLOv12.</div>
 </section>
 
-<!-- ===== 2. Cài đặt ===== -->
+<!-- 2. Cài đặt -->
 <section id="s2">
   <h2>Cài đặt bằng pip</h2>
   <div class="tabs" data-for="s2"></div>
   <div id="s2c"></div>
 </section>
 
-<!-- ===== 3. Code ===== -->
+<!-- 3. Code -->
 <section id="s3">
   <h2>Code chạy ngay</h2>
   <div class="tabs" data-for="s3"></div>
   <div id="s3c"></div>
 </section>
 
-<!-- ===== 4. PLC Siemens ===== -->
+<!-- 4. PLC Siemens -->
 <section id="s4">
   <h2>Siemens PLC – Các dòng phổ biến</h2>
-  <p style="color:var(--mu);margin-bottom:24px">Từ logic module nhỏ đến controller cao cấp. Ảnh thật chất lượng cao nên lấy từ Siemens Industry Image Database.</p>
+  <p style="color:var(--mu);margin-bottom:24px">Từ logic module nhỏ đến controller cao cấp. Ảnh sản phẩm chính thức từ Siemens.</p>
 
   <div class="grid">
 
     <!-- LOGO! -->
     <div class="card">
-      <!-- Thay src bằng ảnh thật của bạn -->
-      <img class="plc-img" src="https://via.placeholder.com/400x160/e2e8f0/64748b?text=LOGO!" alt="Siemens LOGO!">
+      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:76affa099b817178c91c09f3e939d8a893ff377c/width:800/quality:high/logopower-familie-16zu9.jpg" alt="Siemens LOGO!">
       <h3>LOGO!</h3>
       <div class="tag">Logic module · Nhỏ nhất</div>
       <ul>
@@ -109,7 +108,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <!-- S7-200 -->
     <div class="card">
-      <img class="plc-img" src="https://via.placeholder.com/400x160/e2e8f0/64748b?text=S7-200" alt="SIMATIC S7-200">
+      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:feaa95f1-babd-48fc-9adf-3808b1ab9a37/quality:high/width:600/siemens-controller-s7-1200-visual.jpg" alt="SIMATIC S7-200 (tham chiếu)">
       <h3>S7-200</h3>
       <div class="tag">Compact · Đã ngừng sản xuất</div>
       <ul>
@@ -122,7 +121,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <!-- S7-300 -->
     <div class="card">
-      <img class="plc-img" src="https://via.placeholder.com/400x160/e2e8f0/64748b?text=S7-300" alt="SIMATIC S7-300">
+      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:0004103b-998a-4fef-9e90-b818a948be2b/quality:high/width:600/siemens-controller-s7-1500-visual.jpg" alt="SIMATIC S7-300 (tham chiếu)">
       <h3>S7-300</h3>
       <div class="tag">Modular · Trung bình</div>
       <ul>
@@ -135,7 +134,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <!-- S7-400 -->
     <div class="card">
-      <img class="plc-img" src="https://via.placeholder.com/400x160/e2e8f0/64748b?text=S7-400" alt="SIMATIC S7-400">
+      <img class="plc-img" src="https://mall.industry.siemens.com/mall/collaterals/files/206/jpg/05/62/P_ST70_XX_06254i.jpg" alt="SIMATIC S7-400">
       <h3>S7-400</h3>
       <div class="tag">High-end · Cũ</div>
       <ul>
@@ -146,9 +145,9 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       </ul>
     </div>
 
-    <!-- S7-1200 + G2 -->
+    <!-- S7-1200 G2 -->
     <div class="card" style="border:2px solid var(--ac)">
-      <img class="plc-img" src="https://via.placeholder.com/400x160/dbeafe/1e40af?text=S7-1200+G2" alt="SIMATIC S7-1200 G2">
+      <img class="plc-img" src="https://cdn.pathfactoryeu.com/assets/50002/contents/10721/thumbnails/600x/4e24c172-fafc-4226-8633-acd68e3dd77e-01.png" alt="SIMATIC S7-1200 G2">
       <h3>S7-1200 / S7-1200 G2</h3>
       <div class="tag">Compact · Phổ biến nhất hiện nay</div>
       <ul>
@@ -162,7 +161,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
     <!-- S7-1500 -->
     <div class="card">
-      <img class="plc-img" src="https://via.placeholder.com/400x160/e2e8f0/64748b?text=S7-1500" alt="SIMATIC S7-1500">
+      <img class="plc-img" src="https://assets.new.siemens.com/siemens/assets/api/uuid:0004103b-998a-4fef-9e90-b818a948be2b/quality:high/width:600/siemens-controller-s7-1500-visual.jpg" alt="SIMATIC S7-1500">
       <h3>S7-1500</h3>
       <div class="tag">Advanced / High-end</div>
       <ul>
@@ -177,14 +176,13 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   </div>
 
   <div class="note">
-    <b>Ảnh thật chất lượng cao:</b> Tải từ <a href="https://www.automation.siemens.com/bilddb/" target="_blank" style="color:var(--ac)">Siemens Industry Image Database</a> (miễn phí) rồi thay vào thẻ <code>&lt;img class="plc-img" src="..."&gt;</code>.
+    Ảnh sản phẩm lấy từ nguồn Siemens chính thức. Để có ảnh độ phân giải cao nhất và đúng bản quyền, nên tải thêm từ <a href="https://www.automation.siemens.com/bilddb/" target="_blank" style="color:var(--ac)">Siemens Industry Image Database</a>.
   </div>
 </section>
 
 </main>
 
 <script>
-/* Giữ nguyên phần JS YOLO cũ của bạn */
 var cur="v8",V=[
   {id:"v8",name:"YOLOv8",m:"yolov8n.pt",extra:""},
   {id:"v11",name:"YOLO11",m:"yolo11n.pt",extra:""},
